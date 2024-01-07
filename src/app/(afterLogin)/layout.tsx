@@ -8,11 +8,9 @@ import LogoutButton from './_component/LogoutButton';
 import TrendSection from './_component/TrendSection';
 import FollwoRecommend from './_component/FollowRecommend';
 
-export default function AfterLoginLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+type Props = { children: ReactNode; modal: ReactNode };
+
+export default function AfterLoginLayout({ children, modal }: Props) {
   return (
     <div className={styles.container}>
       <header className={styles.leftSectionWrapper}>
@@ -27,7 +25,7 @@ export default function AfterLoginLayout({
               <ul>
                 <NavMenu />
               </ul>
-              <Link href='/compoes/tweet' className={styles.postButton}>
+              <Link href='/compose/tweet' className={styles.postButton}>
                 게시하기
               </Link>
             </nav>
@@ -59,6 +57,7 @@ export default function AfterLoginLayout({
           </section>
         </div>
       </div>
+      {modal}
     </div>
   );
 }
